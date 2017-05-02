@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.7" jmeter="2.12 r1636949">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="天鲜到" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1483428167000</longProp>
+        <longProp name="ThreadGroup.end_time">1483669912000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值-预发布环境" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">apipre.tianxiandao.cn</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器-预发布" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">18609839119</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                </elementProp>
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">bd071c802c9286836d9c051fce4544a0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/mapi/v1/member/login</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.MD5Util;
+System.out.println(&quot;*****加密*****&quot;);
+String encode = MD5Util.getmd5Encode(&quot;888888&quot;);//调用工具类中的方法进行加密
+System.out.println(&quot;Set my encode======&quot;+encode);
+vars.put(&quot;encode&quot;,encode);//把值保存到jmeter变量encode中
+String getEncode=vars.get(&quot;encode&quot;);
+System.out.println(&quot;Get my encode: &quot; + getEncode);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="token" enabled="false">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">token</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.+?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">0</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="jp@gc - JSON Path Extractor" enabled="false">
+              <stringProp name="VAR">token</stringProp>
+              <stringProp name="JSONPATH">$.datas.token</stringProp>
+              <stringProp name="DEFAULT"></stringProp>
+              <stringProp name="VARIABLE"></stringProp>
+              <stringProp name="SUBJECT">BODY</stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import org.json.*;
+
+String jsonString=prev.getResponseDataAsString();
+JSONObject documentObj = new JSONObject(jsonString);
+
+ String token=documentObj.get(&quot;datas&quot;).get(&quot;token&quot;);
+vars.put(&quot;token&quot;,token);</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="false">
+              <stringProp name="scriptLanguage"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey"></stringProp>
+              <stringProp name="script"></stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="110541305">token</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor响应数据转换成中文" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">	String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+		char aChar;
+		int len= s2.length();
+		StringBuffer outBuffer=new StringBuffer(len);
+		for(int x =0; x &lt;len;){
+		  aChar= s2.charAt(x++);
+		  if(aChar==&apos;\\&apos;){
+		     aChar= s2.charAt(x++);
+		     if(aChar==&apos;u&apos;){
+		         int value =0;
+		         for(int i=0;i&lt;4;i++){
+		            aChar= s2.charAt(x++);
+		            switch(aChar){
+		                  case&apos;0&apos;:
+		                  case&apos;1&apos;:
+		                  case&apos;2&apos;:
+		                  case&apos;3&apos;:
+		                  case&apos;4&apos;:
+		                  case&apos;5&apos;:
+		                  case&apos;6&apos;:
+		                  case&apos;7&apos;:
+		                  case&apos;8&apos;:
+		                  case&apos;9&apos;:
+		value=(value &lt;&lt;4)+aChar-&apos;0&apos;;
+		break;
+		case&apos;a&apos;:
+		case&apos;b&apos;:
+		case&apos;c&apos;:
+		case&apos;d&apos;:
+		case&apos;e&apos;:
+		case&apos;f&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;a&apos;;
+		break;
+		case&apos;A&apos;:
+		case&apos;B&apos;:
+		case&apos;C&apos;:
+		case&apos;D&apos;:
+		case&apos;E&apos;:
+		case&apos;F&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;A&apos;;
+		break;
+		default:
+		throw new IllegalArgumentException(
+		&quot;Malformed   \\uxxxx  encoding.&quot;);}}
+		outBuffer.append((char) value);}else{
+		if(aChar==&apos;t&apos;)
+		aChar=&apos;\t&apos;;
+		else if(aChar==&apos;r&apos;)
+		aChar=&apos;\r&apos;;
+		else if(aChar==&apos;n&apos;)
+		aChar=&apos;\n&apos;;
+		else if(aChar==&apos;f&apos;)
+		aChar=&apos;\f&apos;;
+		outBuffer.append(aChar);}}else
+		outBuffer.append(aChar);}
+		prev.setResponseData(outBuffer.toString());
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="现金充值" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="收支明细" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/mapi/v1/rcb/expense/list</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor响应数据转换成中文" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">	String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+		char aChar;
+		int len= s2.length();
+		StringBuffer outBuffer=new StringBuffer(len);
+		for(int x =0; x &lt;len;){
+		  aChar= s2.charAt(x++);
+		  if(aChar==&apos;\\&apos;){
+		     aChar= s2.charAt(x++);
+		     if(aChar==&apos;u&apos;){
+		         int value =0;
+		         for(int i=0;i&lt;4;i++){
+		            aChar= s2.charAt(x++);
+		            switch(aChar){
+		                  case&apos;0&apos;:
+		                  case&apos;1&apos;:
+		                  case&apos;2&apos;:
+		                  case&apos;3&apos;:
+		                  case&apos;4&apos;:
+		                  case&apos;5&apos;:
+		                  case&apos;6&apos;:
+		                  case&apos;7&apos;:
+		                  case&apos;8&apos;:
+		                  case&apos;9&apos;:
+		value=(value &lt;&lt;4)+aChar-&apos;0&apos;;
+		break;
+		case&apos;a&apos;:
+		case&apos;b&apos;:
+		case&apos;c&apos;:
+		case&apos;d&apos;:
+		case&apos;e&apos;:
+		case&apos;f&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;a&apos;;
+		break;
+		case&apos;A&apos;:
+		case&apos;B&apos;:
+		case&apos;C&apos;:
+		case&apos;D&apos;:
+		case&apos;E&apos;:
+		case&apos;F&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;A&apos;;
+		break;
+		default:
+		throw new IllegalArgumentException(
+		&quot;Malformed   \\uxxxx  encoding.&quot;);}}
+		outBuffer.append((char) value);}else{
+		if(aChar==&apos;t&apos;)
+		aChar=&apos;\t&apos;;
+		else if(aChar==&apos;r&apos;)
+		aChar=&apos;\r&apos;;
+		else if(aChar==&apos;n&apos;)
+		aChar=&apos;\n&apos;;
+		else if(aChar==&apos;f&apos;)
+		aChar=&apos;\f&apos;;
+		outBuffer.append(aChar);}}else
+		outBuffer.append(aChar);}
+		prev.setResponseData(outBuffer.toString());
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="现金充值" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="amount" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">0.01</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">amount</stringProp>
+                </elementProp>
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/mapi/v1/rcb/add</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="pay_sn" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">pay_sn</stringProp>
+              <stringProp name="RegexExtractor.regex">pay_sn&quot;:&quot;(.+?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">0</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="微信支付" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+                <elementProp name="pay_sn" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${pay_sn}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">pay_sn</stringProp>
+                </elementProp>
+                <elementProp name="payment_code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">wx</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">payment_code</stringProp>
+                </elementProp>
+                <elementProp name="order_type" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">rcb_order</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">order_type</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/mapi/v1/pingpp/create/charge</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor响应数据转换成中文" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">	String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+		char aChar;
+		int len= s2.length();
+		StringBuffer outBuffer=new StringBuffer(len);
+		for(int x =0; x &lt;len;){
+		  aChar= s2.charAt(x++);
+		  if(aChar==&apos;\\&apos;){
+		     aChar= s2.charAt(x++);
+		     if(aChar==&apos;u&apos;){
+		         int value =0;
+		         for(int i=0;i&lt;4;i++){
+		            aChar= s2.charAt(x++);
+		            switch(aChar){
+		                  case&apos;0&apos;:
+		                  case&apos;1&apos;:
+		                  case&apos;2&apos;:
+		                  case&apos;3&apos;:
+		                  case&apos;4&apos;:
+		                  case&apos;5&apos;:
+		                  case&apos;6&apos;:
+		                  case&apos;7&apos;:
+		                  case&apos;8&apos;:
+		                  case&apos;9&apos;:
+		value=(value &lt;&lt;4)+aChar-&apos;0&apos;;
+		break;
+		case&apos;a&apos;:
+		case&apos;b&apos;:
+		case&apos;c&apos;:
+		case&apos;d&apos;:
+		case&apos;e&apos;:
+		case&apos;f&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;a&apos;;
+		break;
+		case&apos;A&apos;:
+		case&apos;B&apos;:
+		case&apos;C&apos;:
+		case&apos;D&apos;:
+		case&apos;E&apos;:
+		case&apos;F&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;A&apos;;
+		break;
+		default:
+		throw new IllegalArgumentException(
+		&quot;Malformed   \\uxxxx  encoding.&quot;);}}
+		outBuffer.append((char) value);}else{
+		if(aChar==&apos;t&apos;)
+		aChar=&apos;\t&apos;;
+		else if(aChar==&apos;r&apos;)
+		aChar=&apos;\r&apos;;
+		else if(aChar==&apos;n&apos;)
+		aChar=&apos;\n&apos;;
+		else if(aChar==&apos;f&apos;)
+		aChar=&apos;\f&apos;;
+		outBuffer.append(aChar);}}else
+		outBuffer.append(aChar);}
+		prev.setResponseData(outBuffer.toString());
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="更新状态" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+                <elementProp name="client" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">android</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">client</stringProp>
+                </elementProp>
+                <elementProp name="version" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">2.1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">version</stringProp>
+                </elementProp>
+                <elementProp name="h5_version" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">V1.0.4</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">h5_version</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/mapi/v1/member/client/info</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor响应数据转换成中文" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">	String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+		char aChar;
+		int len= s2.length();
+		StringBuffer outBuffer=new StringBuffer(len);
+		for(int x =0; x &lt;len;){
+		  aChar= s2.charAt(x++);
+		  if(aChar==&apos;\\&apos;){
+		     aChar= s2.charAt(x++);
+		     if(aChar==&apos;u&apos;){
+		         int value =0;
+		         for(int i=0;i&lt;4;i++){
+		            aChar= s2.charAt(x++);
+		            switch(aChar){
+		                  case&apos;0&apos;:
+		                  case&apos;1&apos;:
+		                  case&apos;2&apos;:
+		                  case&apos;3&apos;:
+		                  case&apos;4&apos;:
+		                  case&apos;5&apos;:
+		                  case&apos;6&apos;:
+		                  case&apos;7&apos;:
+		                  case&apos;8&apos;:
+		                  case&apos;9&apos;:
+		value=(value &lt;&lt;4)+aChar-&apos;0&apos;;
+		break;
+		case&apos;a&apos;:
+		case&apos;b&apos;:
+		case&apos;c&apos;:
+		case&apos;d&apos;:
+		case&apos;e&apos;:
+		case&apos;f&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;a&apos;;
+		break;
+		case&apos;A&apos;:
+		case&apos;B&apos;:
+		case&apos;C&apos;:
+		case&apos;D&apos;:
+		case&apos;E&apos;:
+		case&apos;F&apos;:
+		value=(value &lt;&lt;4)+10+aChar-&apos;A&apos;;
+		break;
+		default:
+		throw new IllegalArgumentException(
+		&quot;Malformed   \\uxxxx  encoding.&quot;);}}
+		outBuffer.append((char) value);}else{
+		if(aChar==&apos;t&apos;)
+		aChar=&apos;\t&apos;;
+		else if(aChar==&apos;r&apos;)
+		aChar=&apos;\r&apos;;
+		else if(aChar==&apos;n&apos;)
+		aChar=&apos;\n&apos;;
+		else if(aChar==&apos;f&apos;)
+		aChar=&apos;\f&apos;;
+		outBuffer.append(aChar);}}else
+		outBuffer.append(aChar);}
+		prev.setResponseData(outBuffer.toString());
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
