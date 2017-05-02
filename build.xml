@@ -8,11 +8,11 @@
     <property name="jmeter.home" value="D:\soft\apache-jmeter-2.12" />	
     <property name="jmeter.testplans.dir" value="./" />
     
-    <property name="jmeter.result.jtl.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance\workspace\jtl" />
+    <property name="jmeter.result.jtl.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance_git\workspace\jtl" />
     
-    <property name="jmeter.result.html.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance\workspace\html" />
+    <property name="jmeter.result.html.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance_git\workspace\html" />
     
-    <property name="jmeter.result.style.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance\workspace\style" />
+    <property name="jmeter.result.style.dir" value="C:\Users\user\.jenkins\jobs\TXD_pre_performance_git\workspace\style" />
      
     <property name="ReportName" value="TestReport" />
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}${time}.jtl" />
