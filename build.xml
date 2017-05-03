@@ -23,7 +23,6 @@
         <fileset dir="${lib.dir}" includes="xalan-*.jar"/>
         <fileset dir="${lib.dir}" includes="serializer-*.jar"/>
     </path>
-
     <target name="all">
         <antcall target="clean" />
         <antcall target="run" />
