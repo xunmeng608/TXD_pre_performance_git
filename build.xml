@@ -6,7 +6,7 @@
         <format property="time" pattern="yyyyMMddhhmmss" />  
     </tstamp> 
     <property name="jmeter.home" value="D:\soft\apache-jmeter-2.12" />	
-    <property name="jmeter.testplans.dir" value="./" />
+    <property name="jmeter.testplans.dir" value="C:\Users\user\.jenkins\jobs\TXD_performance\workspace\1.jmx" />
     
     <property name="jmeter.result.jtl.dir" value="C:\Users\user\.jenkins\jobs\TXD_performance\workspace\jtl" />
     
